@@ -55,18 +55,30 @@ service.interceptors.response.use(
     // 正常状态返回
     return response
   },
-  (error: any) => {
-    let code: string | null = ''
+  (error) => {
     if (error.response) {
-      code = error.response.status
-    } else if ('message' in error && !error.message) {
-      console.log('取消重复请求', error)
-      code = null
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+      console.log('网络开小差(' + error.response.status + ')')
+    } else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log(error.request)
+      console.log('请求无响应，网络较差或已断开！')
     } else {
-      code = '网络已断开'
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message)
+      if (axios.isCancel(error)) {
+        console.log('Request canceled（取消重复请求）', error.message)
+      } else {
+        console.log(`请求失败：（${error.message}）！`)
+      }
     }
-    if (code !== null) {
-    }
+    console.log(error.config)
     return Promise.reject(error)
   }
 )
