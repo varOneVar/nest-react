@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.pointer {
+  cursor: pointer;
+}
+.bold {
+  font-weight: bold;
+}
+.nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+/*ie与火狐不支持 https://caniuse.com/#search=-webkit-line-clamp*/
+.multiple-nowrap {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.inlineBlock {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-column {
+  flex: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-bt {
+  @extend .flex;
+  justify-content: space-between;
+}
+.flex-align-center {
+  @extend .flex;
+  align-items: center;
+}
+.flex-sa-c {
+  @extend .flex-align-center;
+  justify-content: space-around;
+}
+.flex-bt-c {
+  @extend .flex-align-center;
+  justify-content: space-between;
+}
+.flex-center {
+  @extend .flex-align-center;
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}

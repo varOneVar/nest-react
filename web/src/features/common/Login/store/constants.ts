@@ -1,0 +1,2 @@
+export const LOGIN_USER_INFO_ADD = 'login/LOGIN_USER_INFO_ADD'
+export const LOGIN_USER_INFO_CLEAR = 'login/LOGIN_USER_INFO_CLEAR'
